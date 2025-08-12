@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
-import "./Navbar.css";
+import "./NavBar.css";
 import logo from "../../assets/assetsHomepage/Logo.png";
 
 const Header: React.FC = () => {
