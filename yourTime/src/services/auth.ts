@@ -16,11 +16,11 @@ interface ErrorResponse {
 }
 
 export const loginUser = async (email: string, password: string): Promise<LoginResponse> => {
-  const response = await fetch('http://localhost:5000/log_in', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email, password }),
-  });
+ const response = await fetch(`${process.env.REACT_APP_API_URL}/log_in`, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ email, password }),
+});
 
   if (!response.ok) {
     const errorData: ErrorResponse = await response.json();
@@ -32,7 +32,7 @@ export const loginUser = async (email: string, password: string): Promise<LoginR
 };
 
 export const singupUser = async (name: string, email: string, password: string): Promise<SingupResponse> => {
-  const response = await fetch('http://localhost:5000/sing_up', {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/sing_up`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, password }),
