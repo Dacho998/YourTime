@@ -32,7 +32,7 @@ const response = await fetch(`${process.env.REACT_APP_API_URL}/log_in`, {
 };
 
 export const singupUser = async (name: string, email: string, password: string): Promise<SingupResponse> => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/log_in`, {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/sing_up`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, password }),
