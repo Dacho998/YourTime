@@ -1,0 +1,82 @@
+.footer {
+  background: radial-gradient(circle at 50% 30%, #3e2f15 0%, #1a1206 80%);
+  color: #d4af37;
+  padding: 50px 40px 30px;
+  font-family: 'Playfair Display', serif;
+  box-shadow: inset 0 0 60px rgba(212, 175, 55, 0.15);
+  line-height: 1.6;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.footer-contact,
+.footer-links,
+.footer-message {
+  flex: 1 1 280px;
+  min-width: 280px;
+}
+
+.footer-container h3 {
+  font-size: 1.9rem;
+  margin-bottom: 18px;
+  color: #f5e6c4;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.85);
+  border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+  padding-bottom: 6px;
+  letter-spacing: 1.1px;
+}
+
+.footer-contact ul,
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li,
+.footer-links li {
+  font-size: 1.15rem;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.footer-links li a,
+.footer-contact li a {
+  color: #d4af37;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.7px;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-links li a:hover,
+.footer-contact li a:hover {
+  color: #f5e6c4;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 1);
+}
+
+.footer-message p {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(245, 230, 196, 0.9);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(212, 175, 55, 0.3);
+  margin-top: 40px;
+  padding-top: 20px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-style: italic;
+  letter-spacing: 0.8px;
+}

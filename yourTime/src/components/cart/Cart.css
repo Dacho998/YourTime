@@ -1,0 +1,118 @@
+.cart-container {
+  max-width:1200px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background: linear-gradient(145deg, #1a1a1a, #0e0e0e);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(212, 175, 55, 0.25);
+  color: #f2f2f2;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+}
+
+.cart-container h2 {
+  text-align: center;
+  color: #d4af37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+  margin-bottom: 25px;
+  font-size: 2rem;
+}
+
+.cart-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cart-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  transition: background-color 0.3s;
+}
+
+.cart-list li:last-child {
+  border-bottom: none;
+}
+
+.cart-list li:hover {
+  background-color: rgba(212, 175, 55, 0.1);
+}
+
+.cart-list li span {
+  flex-grow: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-list li button {
+  all: unset;
+  cursor: pointer;
+  padding: 8px 14px;
+  background: black;
+  color: #d4af37;
+  border-radius: 8px;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 15px;
+  text-shadow: 0 0 5px rgba(212, 175, 55, 0.9);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.cart-list li button:hover {
+  background-color: #d4af37;
+  color: black;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 1);
+}
+
+.clear-cart-btn {
+  display: block;
+  margin: 30px auto 0;
+  padding: 14px 40px;
+  background: black;
+  color: #d4af37;
+  border-radius: 12px;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+  text-align: center;
+  text-shadow: 0 0 7px rgba(212, 175, 55, 0.9);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.clear-cart-btn:hover {
+  background-color: #d4af37;
+  color: black;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 1);
+}
+
+.empty-cart-msg {
+  text-align: center;
+  margin-top: 60px;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #d4af37;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  transition: background-color 0.3s;
+}
+
+.cart-item-img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
