@@ -36,6 +36,7 @@ const Login: React.FC = () => {
           id="email"
           placeholder="Enter your email"
           required
+          autoComplete="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
         />
@@ -45,6 +46,7 @@ const Login: React.FC = () => {
           type="password"
           id="password"
           placeholder="Enter your password"
+          autoComplete="current-password"
           required
           value={password}
           onChange={e => setPassword(e.target.value)}

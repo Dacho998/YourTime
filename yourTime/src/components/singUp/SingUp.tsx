@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { singupUser } from '../../services/auth'; 
-import './SingUp.css';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { singupUser } from "../../services/auth";
+import "./SingUp.css";
 
 const SingUp: React.FC = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState<string | null>(null);
 
@@ -19,7 +19,7 @@ const SingUp: React.FC = () => {
     setSuccess(null);
 
     if (password !== confirmPassword) {
-      setError('Passwords do not match');
+      setError("Passwords do not match");
       return;
     }
 
@@ -27,7 +27,7 @@ const SingUp: React.FC = () => {
       const data = await singupUser(name, email, password);
       setSuccess(data.message);
       setTimeout(() => {
-        navigate('/log_in');
+        navigate("/log_in");
       }, 1500);
     } catch (err: any) {
       setError(err.message);
@@ -46,27 +46,28 @@ const SingUp: React.FC = () => {
           placeholder="Enter your full name"
           required
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={(e) => setName(e.target.value)}
         />
-
         <label htmlFor="email">Email</label>
         <input
           type="email"
           id="email"
+          name="username"             
           placeholder="Enter your email"
           required
+          autoComplete="username"      
           value={email}
-          onChange={e => setEmail(e.target.value)}
+          onChange={(e) => setEmail(e.target.value)}
         />
-
         <label htmlFor="password">Password</label>
         <input
           type="password"
           id="password"
           placeholder="Create a password"
           required
+          autoComplete="new-password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <label htmlFor="confirm-password">Confirm Password</label>
@@ -75,8 +76,9 @@ const SingUp: React.FC = () => {
           id="confirm-password"
           placeholder="Confirm your password"
           required
+          autoComplete="new-password"
           value={confirmPassword}
-          onChange={e => setConfirmPassword(e.target.value)}
+          onChange={(e) => setConfirmPassword(e.target.value)}
         />
 
         <button type="submit">Register</button>

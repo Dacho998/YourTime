@@ -15,8 +15,9 @@ interface ErrorResponse {
   error: string;
 }
 
+const API_URL = import.meta.env.VITE_API_URL
 export const loginUser = async (email: string, password: string): Promise<LoginResponse> => {
-const response = await fetch(`${process.env.REACT_APP_API_URL}/log_in`, {
+const response = await fetch(`${API_URL}/log_in`, {
   method: 'POST',
   headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify({ email, password }),
@@ -32,17 +33,22 @@ const response = await fetch(`${process.env.REACT_APP_API_URL}/log_in`, {
 };
 
 export const singupUser = async (name: string, email: string, password: string): Promise<SingupResponse> => {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/sing_up`, {
+  const response = await fetch(`${API_URL}/sign_up`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, password }),
   });
 
+  const text = await response.text();
+
   if (!response.ok) {
-    const errorData: ErrorResponse = await response.json();
-    throw new Error(errorData.error || 'singup failed');
+    try {
+      const errorData: ErrorResponse = JSON.parse(text);
+      throw new Error(errorData.error || 'Signup failed');
+    } catch {
+      throw new Error(text || 'Signup failed');
+    }
   }
 
-  const data: SingupResponse = await response.json();
-  return data;
+  return JSON.parse(text) as SingupResponse;
 };
