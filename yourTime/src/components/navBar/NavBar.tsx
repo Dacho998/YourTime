@@ -47,6 +47,11 @@ const Header: React.FC = () => {
 
   return (
     <header className="header-container">
+      {user && (
+      <div className="user-greeting">
+      Здраво, {user.name} 👋
+      </div>
+    )}
       <div className="header-top">
         <span className="logo">
           <img src={logo} alt="logo img" className="logo-img" />
