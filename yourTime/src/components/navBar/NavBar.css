@@ -183,13 +183,30 @@
   pointer-events: none;
   box-shadow: 0 0 5px rgba(212, 175, 55, 0.8);
 }
-.user-greeting {
-  text-align: center;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 5px;
-  color: #333;
+.logout-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px; /* растојание меѓу поздравот и копчето */
 }
+
+.user-greeting-nav {
+  font-size: 14px;
+  font-weight: 600;
+  color: #d4af37;
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.9);
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.user-greeting-nav span {
+  color: white;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 
 .hamburger {
   display: none;

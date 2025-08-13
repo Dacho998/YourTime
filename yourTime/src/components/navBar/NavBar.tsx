@@ -47,11 +47,6 @@ const Header: React.FC = () => {
 
   return (
     <header className="header-container">
-      {user && (
-      <div className="user-greeting">
-      Здраво, {user.name} 👋
-      </div>
-    )}
       <div className="header-top">
         <span className="logo">
           <img src={logo} alt="logo img" className="logo-img" />
@@ -148,17 +143,22 @@ const Header: React.FC = () => {
               </li>
             )}
 
-            <li>
-              {user ? (
-                <button onClick={handleLogout} className="logout-button">
-                  LOG OUT
-                </button>
-              ) : (
-                <Link to="/log_in" onClick={closeMenu}>
-                  LOG IN
-                </Link>
-              )}
-            </li>
+<li className="logout-section">
+  {user ? (
+    <>
+      <div className="user-greeting-nav">
+        <span>{user.name}</span>
+      </div>
+      <button onClick={handleLogout} className="logout-button">
+        LOG OUT
+      </button>
+    </>
+  ) : (
+    <Link to="/log_in" onClick={closeMenu}>
+      LOG IN
+    </Link>
+  )}
+</li>
           </ul>
         </div>
       </nav>
