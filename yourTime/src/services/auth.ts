@@ -46,7 +46,7 @@ export const loginUser = (email: string, password: string) => {
 };
 
 export const singupUser = (name: string, email: string, password: string) => {
-  return safeFetch<SignupResponse>(`${API_URL}/sign_up`, {
+  return safeFetch<SignupResponse>(`${API_URL}/sing_up`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, password }),
