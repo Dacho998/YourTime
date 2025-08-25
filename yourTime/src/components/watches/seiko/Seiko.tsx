@@ -8,7 +8,6 @@ import seiko7 from "../../../assets/seiko/seiko.7.jpg";
 import seiko8 from "../../../assets/seiko/seiko.8.jpg";
 import seiko9 from "../../../assets/seiko/seiko.9.jpg";
 import seiko10 from "../../../assets/seiko/seiko.10.jpg";
-import WatchesCollection from "../WatchesCollection";
 import type { Watch } from '../Watch';
 
 const seikoWatches: Watch[] = [

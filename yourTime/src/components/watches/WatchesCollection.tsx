@@ -1,4 +1,3 @@
-import React from "react";
 import "../watches/Watches.css";
 import type { Watch } from "./Watch";
 import { useCart } from "../../context/CartContext";
@@ -13,7 +12,7 @@ const formatPriceMKD = (price: number) => {
   return `${price.toFixed(3)} МКД`;
 };
 
-const WatchesCollection: React.FC<Props> = ({ watches, visibleCount }) => {
+export default function WatchesCollection ({ watches, visibleCount }: Props) {
   const { addToCart } = useCart();
   const navigate = useNavigate();
 
@@ -53,5 +52,3 @@ const WatchesCollection: React.FC<Props> = ({ watches, visibleCount }) => {
     </div>
   );
 };
-
-export default WatchesCollection;

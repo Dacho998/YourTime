@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import "./NavBar.css";
 import logo from "../../assets/assetsHomepage/Logo.png";
 
-const Header: React.FC = () => {
+export default function Header()  {
   const [brandsOpen, setBrandsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -160,5 +160,3 @@ const Header: React.FC = () => {
     </header>
   );
 };
-
-export default Header;

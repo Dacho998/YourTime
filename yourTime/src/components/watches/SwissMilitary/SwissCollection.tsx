@@ -1,13 +1,10 @@
-import React from "react";
 import WatchesCollection from "../WatchesCollection";
 import swissWatches from "./Swiss";
 
-const SwissCollection: React.FC = () => {
+export default function SwissCollection ()  {
   return (
     <div>
       <WatchesCollection watches={swissWatches} visibleCount={swissWatches.length} />
     </div>
   );
 };
-
-export default SwissCollection;

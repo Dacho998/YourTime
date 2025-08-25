@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { singupUser } from "../../services/auth";
 import "./SingUp.css";
 
-const SingUp: React.FC = () => {
+export default function SingUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -93,5 +93,3 @@ const SingUp: React.FC = () => {
     </section>
   );
 };
-
-export default SingUp;

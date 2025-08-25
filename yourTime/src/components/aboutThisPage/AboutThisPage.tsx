@@ -1,7 +1,6 @@
-import React from "react";
 import "./AboutThisPage.css";
 
-const AboutThisSite: React.FC = () => {
+export default function AboutThisSite() {
   return (
     <section className="about-container">
       <div className="about-content">
@@ -25,5 +24,3 @@ const AboutThisSite: React.FC = () => {
     </section>
   );
 };
-
-export default AboutThisSite;

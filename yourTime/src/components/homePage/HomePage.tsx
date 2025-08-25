@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./HomePage.css";
 import heroImg from "../../assets/assetsHomepage/heroImg.png";
 import WatchesCollection from "../watches/WatchesCollection";
@@ -6,7 +6,7 @@ import  swissWatches  from "../watches/SwissMilitary/Swiss";
 import  festinaWatches  from "../watches/festina/Festina"; 
 import  seikoWatches  from "../watches/seiko/Seiko";     
 
-const HomePage = () => {
+export default function HomePage () {
   const [festinaVisible, setFestinaVisible] = useState(3);
   const [seikoVisible, setSeikoVisible] = useState(3);
   const [swissVisible, setSwissVisible] = useState(3);
@@ -83,5 +83,3 @@ const HomePage = () => {
     </>
   );
 };
-
-export default HomePage;

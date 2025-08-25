@@ -4,7 +4,7 @@ import { loginUser } from '../../services/auth';
 import { useAuth } from '../../context/AuthContext';  
 import './LogIn.css';
 
-const Login: React.FC = () => {
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
@@ -63,5 +63,3 @@ const Login: React.FC = () => {
     </section>
   );
 };
-
-export default Login;

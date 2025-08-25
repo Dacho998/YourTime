@@ -1,3 +1,5 @@
+// src/services/auth.ts
+
 interface LoginResponse {
   message: string;
   user: {
@@ -37,18 +39,31 @@ async function safeFetch<T>(url: string, options: RequestInit): Promise<T> {
   }
 }
 
-export const loginUser = (email: string, password: string) => {
-  return safeFetch<LoginResponse>(`${API_URL}/log_in`, {
+
+export const loginUser = async (email: string, password: string) => {
+  const log = await fetch(`${API_URL}/log_in`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ email, password }),
   });
+
+  const data = await log.json(); 
+  if (!log.ok) {
+    throw new Error(data.error || 'Request failed');
+  }
+  return data; 
 };
 
-export const singupUser = (name: string, email: string, password: string) => {
-  return safeFetch<SignupResponse>(`${API_URL}/sing_up`, {
+export const singupUser = async (name: string, email: string, password: string) => {
+  const sign = await fetch(`${API_URL}/sing_up`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, password }),
   });
+  const data = await sign.json();
+  if (!sign.ok) {
+    throw new Error(data.error || 'Request failed');
+  }
+  return data;
 };
+

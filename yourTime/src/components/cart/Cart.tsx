@@ -1,4 +1,3 @@
-import React from 'react';
 import { useCart } from '../../context/CartContext';
 import "./Cart.css";
 
@@ -6,7 +5,7 @@ const formatPriceMKD = (price: number) => {
   return price.toFixed(3).replace('.', ',');
 }
 
-const Cart: React.FC = () => {
+export default function Cart () {
   const { cart, removeFromCart, clearCart } = useCart();
 
   if (cart.length === 0) {
@@ -38,5 +37,3 @@ const Cart: React.FC = () => {
     </div>
   );
 };
-
-export default Cart;

@@ -1,13 +1,10 @@
-import React from "react";
 import WatchesCollection from "../WatchesCollection";
 import festinaWatches from "./Festina";
 
-const FestinaCollection: React.FC = () => {
+export default function FestinaCollection() {
   return (
     <div>
       <WatchesCollection watches={festinaWatches} visibleCount={festinaWatches.length} />
     </div>
   );
 };
-
-export default FestinaCollection;

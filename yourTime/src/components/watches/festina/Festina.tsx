@@ -8,7 +8,6 @@ import festina7 from "../../../assets/festina/festina.7.jpg";
 import festina8 from "../../../assets/festina/festina.8.jpg";
 import festina9 from "../../../assets/festina/festina.9.jpg";
 import festina10 from "../../../assets/festina/festina.10.jpg";
-import WatchesCollection from "../WatchesCollection";
 import type { Watch } from '../Watch';
 
 
