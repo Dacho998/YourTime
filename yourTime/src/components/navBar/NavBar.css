@@ -27,99 +27,49 @@
   flex-grow: 1;
 }
 
-.nav-links {
-  position: sticky;
-  top: 0;
-  padding: 10px;
-  z-index: 1000;
-}
-
 .nav-container {
-  max-width: 1200px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  gap: 130px;
   justify-content: center;
-}
-
-.navbutton,
-.navbuttons li a,
-.brand ul li a,
-.logout-button {
-  all: unset;
-  display: block;
-  width: 200px;
-  padding: 14px;
-  border-radius: 8px;
-  text-align: center;
-  white-space: nowrap;
-  box-sizing: border-box;
-  cursor: pointer;
-  background: black;
-  color: white;
-  position: relative;
-  overflow: hidden;
-  transition: background-color 0.3s, color 0.3s;
-  font-family: "Playfair Display", serif;
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 1.2px;
-  text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
 }
 
 .navbuttons {
   display: flex;
-  gap: 130px;
-  margin: 0;
-  padding: 0;
+  gap: 40px;
   list-style: none;
-}
-
-.drop {
-  position: relative;
-  display: inline-block;
-}
-
-.brand {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: transparent;
-  z-index: 999;
-}
-
-.brand ul {
-  margin: 0;
   padding: 0;
-  list-style: none;
+  margin: 0;
 }
 
-.brand ul li {
-  width: 200px;
+.nav-item {
+  display: block;
+  padding: 15px 20px;
+  width: 26vh;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  background: black;
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 4px rgba(255, 215, 0, 0.8);
+  text-decoration: none;
+  border: none;
+  transition: background-color 0.3s, color 0.3s;
+  position: relative; 
+  overflow: hidden;
 }
 
-.brand ul li:first-child a {
-  border-radius: 8px 8px 0 0;
-}
 
-.brand ul li:last-child a {
-  border-radius: 0 0 8px 8px;
-}
-
-.navbutton:hover,
-.navbuttons li a:hover,
-.brand ul li a:hover,
-.logout-button:hover {
+.nav-item:hover {
   background-color: #d4af37;
   color: black;
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.9);
 }
 
-.navbutton:hover::before,
-.navbuttons li a:hover::before,
-.brand ul li a:hover::before,
-.logout-button:hover::before {
+.nav-item:hover::before {
   content: "";
   position: absolute;
   top: 0;
@@ -140,34 +90,36 @@
 
 @keyframes shinyMove {
   0% {
-    left: -75%;
+    left: -50%;
   }
   100% {
     left: 125%;
   }
 }
-.cart-link {
+
+.brands-wrapper {
   position: relative;
-  display: inline-block;
-  padding: 14px;
-  border-radius: 8px;
-  background: black;
-  color: white;
-  font-family: "Playfair Display", serif;
-  font-weight: 600;
-  font-size: 17px;
-  letter-spacing: 1.2px;
-  text-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
-  cursor: pointer;
-  text-align: center;
-  white-space: nowrap;
-  transition: background-color 0.3s, color 0.3s;
 }
 
-.cart-link:hover {
-  background-color: #d4af37;
-  color: black;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.9);
+.brand {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: black;
+  border-radius: 15px;
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  z-index: 999;
+}
+
+.brands-wrapper.active .brand {
+  display: flex;
+}
+
+.brand li a {
+  width: 26vh;
+  border-radius: 0;
 }
 
 .cart-badge {
@@ -191,62 +143,50 @@
   width: 25px;
   height: 18px;
   cursor: pointer;
-  z-index: 3000;
 }
 
 .hamburger span {
-  background: black;
+  background: #000;
   height: 3px;
   border-radius: 2px;
-  width: 100%;
-}
-
-@media (max-width: 1666px) {
-  .navbutton,
-  .navbuttons li a,
-  .brand ul li a {
-    width: 200px;     
-    font-size: 15px;   
-  }
-}
-
-@media (max-width: 1531px) {
-  .navbutton,
-  .navbuttons li a,
-  .brand ul li a {
-    width: 160px;     
-    font-size: 13px;   
-  }
-}
-
-@media (max-width: 1319px) {
-  .navbutton,
-  .navbuttons li a,
-  .brand ul li a {
-    width: 135px;     
-    font-size: 10px;   
-  }
 }
 
 @media (max-width: 1200px) {
   .hamburger {
     display: flex;
   }
-  .navbutton,
-  .navbuttons li a{
+  .navbuttons {
     display: none;
     flex-direction: column;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    background-color: #000;
     width: 100%;
-    padding: 1rem;
-    border-top: 1px solid #000;
+    background-color: black;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    padding: 1rem 0;
     z-index: 2000;
+    gap: 5px;
   }
-  
-  .nav-links.open {
+
+  .nav-links.open .navbuttons {
     display: flex;
+    
+  }
+
+  .navbuttons li,
+  .nav-item {
+    width: 100%;
+  }
+
+  .brands-wrapper .brand {
+    height: 130px;
+    position: static;
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    margin-top: 0;
+    margin-left: 18%;
+    background-color: black;
+    gap: 5px;
   }
 }
