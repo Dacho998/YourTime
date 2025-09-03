@@ -7,8 +7,6 @@
   margin: 0 auto;
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 30%, #3e2f15 0%, #1a1206 80%);
-  box-shadow: inset 0 0 60px 20px rgba(212, 175, 55, 0.15);
 }
 
 .container::before {
@@ -18,12 +16,7 @@
   left: -70%;
   width: 250%;
   height: 100%;
-  background: linear-gradient(
-    115deg,
-    transparent 40%,
-    rgba(212, 175, 55, 0.06) 50%,
-    transparent 60%
-  );
+  background: linear-gradient(180deg, #1e1b17 0%, #0f0d0a 100%);
   pointer-events: none;
   z-index: 0;
 }
@@ -32,11 +25,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at center,
-    transparent 70%,
-    rgba(0, 0, 0, 0.85) 100%
-  );
+  background: none;
   pointer-events: none;
   z-index: 0;
 }

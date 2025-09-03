@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
 import "./NavBar.css";
-import logo from "../../assets/assetsHomepage/Logo.png";
 
 export default function Header() {
   const [brandsOpen, setBrandsOpen] = useState(false);
@@ -13,10 +12,12 @@ export default function Header() {
   const { user, logout } = useAuth();
   const { cart, clearCart } = useCart();
   const navigate = useNavigate();
-
-  const toggleBrands = () => setBrandsOpen(prev => !prev);
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+  const toggleBrands = () => setBrandsOpen((prev) => !prev);
   const closeBrands = () => setBrandsOpen(false);
-  const toggleMenu = () => setMenuOpen(prev => !prev);
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
 
   const handleLogout = () => {
@@ -28,12 +29,13 @@ export default function Header() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      )
         closeBrands();
-      }
-      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+      if (navRef.current && !navRef.current.contains(event.target as Node))
         closeMenu();
-      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
@@ -42,12 +44,15 @@ export default function Header() {
   return (
     <header className="header-container">
       <div className="header-top">
-        <span className="logo">
-          <img src={logo} alt="logo" className="logo-img" />
-        </span>
-        <h1 className="title">YOUR:TIME</h1>
+        <h1 className="title">
+          <span className="brand-word">YOUR:TIME</span>
+        </h1>
 
-        <div className={`hamburger ${menuOpen ? "active" : ""}`} onClick={toggleMenu}>
+        <div
+          className={`hamburger ${menuOpen ? "active" : ""}`}
+          onClick={toggleMenu}
+          aria-label="Menu"
+        >
           <span></span>
           <span></span>
           <span></span>
@@ -57,7 +62,10 @@ export default function Header() {
       <nav ref={navRef} className={`nav-links ${menuOpen ? "open" : ""}`}>
         <div className="nav-container">
           <ul className="navbuttons">
-            <li ref={dropdownRef} className={`brands-wrapper ${brandsOpen ? "active" : ""}`}>
+            <li
+              ref={dropdownRef}
+              className={`brands-wrapper ${brandsOpen ? "active" : ""}`}
+            >
               <button
                 className="nav-item drop"
                 aria-haspopup="true"
@@ -66,15 +74,18 @@ export default function Header() {
               >
                 BRANDS
               </button>
-
               {brandsOpen && (
                 <ul className="brand">
-                  {["FESTINA", "SEIKO", "SWISS MILITARY"].map((brand) => (
+                  {["FESTINA", "SEIKO", "SWISS-MILITARY"].map((brand) => (
                     <li key={brand}>
                       <Link
                         className="nav-item"
-                        to={`/${brand.toLowerCase()}`}
-                        onClick={() => { closeBrands(); closeMenu(); }}
+                        to={`/${brand.toLowerCase().replace(/\s+/g, "-")}`}
+                        onClick={() => {
+                          scrollToTop();
+                          closeBrands();
+                          closeMenu();
+                        }}
                       >
                         {brand}
                       </Link>
@@ -84,23 +95,80 @@ export default function Header() {
               )}
             </li>
 
-            <li><Link className="nav-item" to="/" onClick={closeMenu}>HOME</Link></li>
-            <li><Link className="nav-item" to="/About_this_page" onClick={closeMenu}>ABOUT THIS PAGE</Link></li>
-            <li><Link className="nav-item" to="/Contact" onClick={closeMenu}>CONTACT</Link></li>
+            <li>
+              <Link
+                className="nav-item"
+                to="/"
+                onClick={() => {
+                  closeMenu();
+                  scrollToTop();
+                }}
+              >
+                HOME
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="nav-item"
+                to="/About_this_page"
+                onClick={() => {
+                  closeMenu;
+                  scrollToTop();
+                }}
+              >
+                ABOUT THIS PAGE
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="nav-item"
+                to="/Contact"
+                onClick={() => {
+                  closeMenu();
+                  scrollToTop();
+                }}
+              >
+                CONTACT
+              </Link>
+            </li>
 
             {user && (
               <li>
-                <Link className="nav-item cart-link" to="/cart" onClick={closeMenu}>
-                  CART {cart.length > 0 && <span className="cart-badge">{cart.length}</span>}
+                <Link
+                  className="nav-item cart-link"
+                  to="/cart"
+                  onClick={() => {
+                    closeMenu();
+                    scrollToTop();
+                  }}
+                >
+                  CART{" "}
+                  {cart.length > 0 && (
+                    <span className="cart-badge">{cart.length}</span>
+                  )}
                 </Link>
               </li>
             )}
 
             <li>
               {user ? (
-                <button className="nav-item logout-button" onClick={handleLogout}>LOG OUT</button>
+                <button
+                  className="nav-item logout-button"
+                  onClick={handleLogout}
+                >
+                  LOG OUT
+                </button>
               ) : (
-                <Link className="nav-item" to="/log_in" onClick={closeMenu}>LOG IN</Link>
+                <Link
+                  className="nav-item"
+                  to="/log_in"
+                  onClick={() => {
+                    closeMenu();
+                    scrollToTop();
+                  }}
+                >
+                  LOG IN
+                </Link>
               )}
             </li>
           </ul>

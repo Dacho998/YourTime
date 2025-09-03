@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at 50% 30%, #3e2f15 0%, #1a1206 80%);
+
   padding: 20px;
   font-family: 'Playfair Display', serif;
   color: #f5e6c4;

@@ -28,7 +28,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/festina" element={<FestinaCollection />} />
               <Route path="/seiko" element={<SeikoCollection />} />
-              <Route path="/swiss" element={<SwissCollection />} />
+              <Route path="/swiss-military" element={<SwissCollection />} />
               <Route path="/About_this_page" element={<AboutThisSite />} />
               <Route path="/Contact" element={<Contact />} />
               <Route path="/log_in" element={<Login />} />

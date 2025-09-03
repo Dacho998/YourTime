@@ -1,5 +1,11 @@
 .header-container {
   padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #1e1206;
+  box-shadow: inset 0 0 60px rgba(212, 175, 55, 0.15);
+  color: #fff;
 }
 
 .header-top {
@@ -10,21 +16,17 @@
   height: 80px;
 }
 
-.logo {
-  position: absolute;
-  left: 20px;
-}
-
-.logo-img {
-  height: 70px;
-  display: block;
-}
-
 .title {
   font-size: 35px;
   margin: 0;
   text-align: center;
   flex-grow: 1;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+.brand-word {
+  color: #d8b243
 }
 
 .nav-container {
@@ -39,9 +41,11 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  flex-wrap: wrap;
 }
 
-.nav-item {
+.nav-item,
+.logout-button {
   display: block;
   padding: 15px 20px;
   width: 26vh;
@@ -49,7 +53,7 @@
   text-align: center;
   cursor: pointer;
   background: black;
-  color: white;
+  color: #d8b243;
   font-family: "Playfair Display", serif;
   font-weight: 600;
   font-size: 15px;
@@ -58,15 +62,14 @@
   text-decoration: none;
   border: none;
   transition: background-color 0.3s, color 0.3s;
-  position: relative; 
+  position: relative;
   overflow: hidden;
 }
 
-
-.nav-item:hover {
+.nav-item:hover,
+.logout-button:hover {
   background-color: #d4af37;
   color: black;
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.9);
 }
 
 .nav-item:hover::before {
@@ -99,18 +102,19 @@
 
 .brands-wrapper {
   position: relative;
+  
 }
 
 .brand {
   position: absolute;
   top: 100%;
   left: 0;
-  background: black;
   border-radius: 15px;
-  overflow: hidden;
   display: none;
   flex-direction: column;
+  overflow: hidden;
   z-index: 999;
+  
 }
 
 .brands-wrapper.active .brand {
@@ -118,7 +122,7 @@
 }
 
 .brand li a {
-  width: 26vh;
+  width: 200px;
   border-radius: 0;
 }
 
@@ -146,7 +150,7 @@
 }
 
 .hamburger span {
-  background: #000;
+  background-color: #d4af37;
   height: 3px;
   border-radius: 2px;
 }
@@ -155,38 +159,44 @@
   .hamburger {
     display: flex;
   }
+
   .navbuttons {
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: black;
     position: absolute;
     top: 100px;
     left: 0;
     padding: 1rem 0;
     z-index: 2000;
     gap: 5px;
+     background-color: #1e1206;
   }
 
   .nav-links.open .navbuttons {
     display: flex;
-    
   }
 
   .navbuttons li,
-  .nav-item {
-    width: 100%;
+  .nav-item,
+  .logout-button {
+    width: 90%;
+    margin: 0 auto;
   }
 
   .brands-wrapper .brand {
-    height: 130px;
+    height: auto;
     position: static;
     display: flex;
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
     margin-top: 0;
-    margin-left: 18%;
-    background-color: black;
     gap: 5px;
+    
+  }
+
+  .brand li a {
+    width: 90%;
+    text-decoration: none;
   }
 }
