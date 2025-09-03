@@ -1,10 +1,7 @@
 import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
 import { useAuth } from './AuthContext'; 
 import type { Watch } from "../components/watches/Watch";
-
-interface CartItem extends Watch {
-  quantity: number;
-}
+import type {CartItem } from "../components/watches/Watch";
 
 interface CartContextType {
   cart: CartItem[];
