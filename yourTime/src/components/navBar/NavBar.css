@@ -139,7 +139,27 @@
   pointer-events: none;
   box-shadow: 0 0 5px rgba(212, 175, 55, 0.8);
 }
+.user-info-desktop {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
+.user-info-desktop .user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #d8b243;
+  object-fit: cover;
+}
+
+.user-info-mobile {
+  display: none;
+}
 .hamburger {
   display: none;
   flex-direction: column;
@@ -158,6 +178,25 @@
 @media (max-width: 1200px) {
   .hamburger {
     display: flex;
+  }
+.user-info-desktop {
+    display: none; 
+  }
+
+  .user-info-mobile {
+    display: flex; 
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    color: #d8b243;
+    font-weight: 600;
+  }
+
+  .user-info-mobile .user-avatar {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: 2px solid #d8b243;
   }
 
   .navbuttons {
@@ -182,6 +221,7 @@
   .logout-button {
     width: 90%;
     margin: 0 auto;
+     list-style: none;
   }
 
   .brands-wrapper .brand {
@@ -192,7 +232,7 @@
     align-items: center;
     margin-top: 0;
     gap: 5px;
-    
+    text-decoration: none;
   }
 
   .brand li a {

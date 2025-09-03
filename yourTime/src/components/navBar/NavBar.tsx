@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
+import avatar from "../../assets/assetsHomepage/avatar.jpg"
 import "./NavBar.css";
 
 export default function Header() {
@@ -47,7 +48,12 @@ export default function Header() {
         <h1 className="title">
           <span className="brand-word">YOUR:TIME</span>
         </h1>
-
+{user && (
+  <div className="user-info-desktop">
+    <img src={avatar} alt="avatar" className="user-avatar" />
+    <span>{user.name}</span>
+  </div>
+)}
         <div
           className={`hamburger ${menuOpen ? "active" : ""}`}
           onClick={toggleMenu}
@@ -62,6 +68,12 @@ export default function Header() {
       <nav ref={navRef} className={`nav-links ${menuOpen ? "open" : ""}`}>
         <div className="nav-container">
           <ul className="navbuttons">
+         {user && (
+        <li className="user-info-mobile">
+          <img src={avatar} alt="avatar" className="user-avatar" />
+          <span>{user.name}</span>
+        </li>
+      )}
             <li
               ref={dropdownRef}
               className={`brands-wrapper ${brandsOpen ? "active" : ""}`}
@@ -112,8 +124,9 @@ export default function Header() {
                 className="nav-item"
                 to="/About_this_page"
                 onClick={() => {
-                  closeMenu;
-                  scrollToTop();
+                          scrollToTop();
+                          closeBrands();
+                          closeMenu();
                 }}
               >
                 ABOUT THIS PAGE
