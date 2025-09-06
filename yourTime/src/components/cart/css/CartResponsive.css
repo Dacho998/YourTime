@@ -10,9 +10,8 @@
     padding: 12px;
   }
 
-  .cart-item-img {
-    width: 100%;
-    height: auto;
+  .empty-cart img {
+    width: 40vh!important;
   }
 
   .cart-list li span {
@@ -38,9 +37,8 @@
     gap: 15px;
   }
 
-  .cart-item-img {
-    width: 100px;
-    height: 100px;
+  .empty-cart img {
+    width: 45.5vh;
   }
 
   .clear-cart-btn {
