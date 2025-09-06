@@ -1,4 +1,5 @@
-import "./Footer.css";
+import "./css/Footer.css";
+import "./css/FooterResponsive.css"
 import { Link } from "react-router-dom";
  const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });

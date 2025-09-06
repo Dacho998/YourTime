@@ -1,25 +1,31 @@
-import { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
-import avatar from "../../assets/assetsHomepage/avatar.jpg"
-import "./NavBar.css";
+import avatar from "../../assets/assetsHomepage/avatar.jpg";
+import { useNavBarLogic } from "./hooks/UseNavBarLogic";
+import BrandDropdown from "./components/BrandsDropdown";
+import UserInfo from "./components/UserInfo";
+import Hamburger from "./components/Hamburger";
+import "./css/NavBar.css";
+import "./css/NavBarResponsive.css"
 
-export default function Header() {
-  const [brandsOpen, setBrandsOpen] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const dropdownRef = useRef<HTMLLIElement>(null);
-  const navRef = useRef<HTMLDivElement>(null);
+export default function NavBar() {
   const { user, logout } = useAuth();
   const { cart, clearCart } = useCart();
   const navigate = useNavigate();
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-  const toggleBrands = () => setBrandsOpen((prev) => !prev);
-  const closeBrands = () => setBrandsOpen(false);
-  const toggleMenu = () => setMenuOpen((prev) => !prev);
-  const closeMenu = () => setMenuOpen(false);
+
+  const {
+    brandsOpen,
+    menuOpen,
+    toggleBrands,
+    closeBrands,
+    toggleMenu,
+    closeMenu,
+    dropdownRef,
+    navRef,
+  } = useNavBarLogic();
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   const handleLogout = () => {
     clearCart();
@@ -28,52 +34,23 @@ export default function Header() {
     closeMenu();
   };
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      )
-        closeBrands();
-      if (navRef.current && !navRef.current.contains(event.target as Node))
-        closeMenu();
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
   return (
     <header className="header-container">
       <div className="header-top">
         <h1 className="title">
           <span className="brand-word">YOUR:TIME</span>
         </h1>
-{user && (
-  <div className="user-info-desktop">
-    <img src={avatar} alt="avatar" className="user-avatar" />
-    <span>{user.name}</span>
-  </div>
-)}
-        <div
-          className={`hamburger ${menuOpen ? "active" : ""}`}
-          onClick={toggleMenu}
-          aria-label="Menu"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+
+        {user && <UserInfo name={user.name} avatar={avatar} />}
+
+        <Hamburger isOpen={menuOpen} onClick={toggleMenu} />
       </div>
 
       <nav ref={navRef} className={`nav-links ${menuOpen ? "open" : ""}`}>
         <div className="nav-container">
           <ul className="navbuttons">
-         {user && (
-        <li className="user-info-mobile">
-          <img src={avatar} alt="avatar" className="user-avatar" />
-          <span>{user.name}</span>
-        </li>
-      )}
+            {user && <UserInfo name={user.name} avatar={avatar} isMobile />}
+
             <li
               ref={dropdownRef}
               className={`brands-wrapper ${brandsOpen ? "active" : ""}`}
@@ -86,25 +63,15 @@ export default function Header() {
               >
                 BRANDS
               </button>
-              {brandsOpen && (
-                <ul className="brand">
-                  {["FESTINA", "SEIKO", "SWISS-MILITARY"].map((brand) => (
-                    <li key={brand}>
-                      <Link
-                        className="nav-item"
-                        to={`/${brand.toLowerCase().replace(/\s+/g, "-")}`}
-                        onClick={() => {
-                          scrollToTop();
-                          closeBrands();
-                          closeMenu();
-                        }}
-                      >
-                        {brand}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
+
+              <BrandDropdown
+                isOpen={brandsOpen}
+                onClose={closeBrands}
+                onItemClick={() => {
+                  scrollToTop();
+                  closeMenu();
+                }}
+              />
             </li>
 
             <li>
@@ -119,19 +86,21 @@ export default function Header() {
                 HOME
               </Link>
             </li>
+
             <li>
               <Link
                 className="nav-item"
                 to="/About_this_page"
                 onClick={() => {
-                          scrollToTop();
-                          closeBrands();
-                          closeMenu();
+                  scrollToTop();
+                  closeBrands();
+                  closeMenu();
                 }}
               >
                 ABOUT THIS PAGE
               </Link>
             </li>
+
             <li>
               <Link
                 className="nav-item"
@@ -155,7 +124,7 @@ export default function Header() {
                     scrollToTop();
                   }}
                 >
-                  CART{" "}
+                  WATCH BOX{" "}
                   {cart.length > 0 && (
                     <span className="cart-badge">{cart.length}</span>
                   )}

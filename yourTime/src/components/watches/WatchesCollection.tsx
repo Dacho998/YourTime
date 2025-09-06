@@ -1,4 +1,5 @@
-import "../watches/Watches.css";
+import "./css/Watches.css";
+import "./css/WatchesResponsive.css"
 import type { Watch } from "./Watch";
 import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";

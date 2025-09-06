@@ -1,5 +1,5 @@
-import './contact.css';
-
+import './css/contact.css';
+import "./css/ContactResponsive.css"
 export default function Contact ()  {
   return (
     <section className="contact-container">

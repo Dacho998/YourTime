@@ -1,0 +1,86 @@
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .card1 {
+    height: auto;
+  }
+
+  .card1 img {
+    height: 200px;
+    padding: 10px;
+  }
+
+  .card1 h4 {
+    font-size: 1rem;
+  }
+
+  .card1 p {
+    font-size: 1rem;
+  }
+
+  .add-to-cart-btn {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 30px;
+    gap: 25px;
+  }
+
+  .card1 {
+    height: 450px;
+  }
+
+  .card1 img {
+    height: 240px;
+    padding: 15px;
+  }
+
+  .card1 h4 {
+    font-size: 1.05rem;
+  }
+
+  .card1 p {
+    font-size: 1.05rem;
+  }
+
+  .add-to-cart-btn {
+    padding: 7px 11px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    padding: 50px;
+    gap: 40px;
+  }
+
+  .card1 {
+    height: 500px;
+  }
+
+  .card1 img {
+    height: 280px;
+    padding: 20px;
+  }
+
+  .card1 h4 {
+    font-size: 1.1rem;
+  }
+
+  .card1 p {
+    font-size: 1.15rem;
+  }
+
+  .add-to-cart-btn {
+    padding: 8px 12px;
+    font-size: 1rem;
+  }
+}

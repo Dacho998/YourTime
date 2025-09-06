@@ -1,5 +1,5 @@
-import "./AboutThisPage.css";
-
+import "./css/AboutResponsive.css";
+import "./css/AboutThisPage.css"
 export default function AboutThisSite() {
   return (
     <section className="about-container">

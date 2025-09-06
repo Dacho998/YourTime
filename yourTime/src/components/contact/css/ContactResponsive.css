@@ -1,0 +1,70 @@
+@media (max-width: 480px) {
+  .contact-container {
+    padding: 40px 15px;
+  }
+
+  .contact-content {
+    width: 100%;
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  .contact-content h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+  }
+
+  .contact-content p,
+  .contact-content li {
+    font-size: 1rem;
+    line-height: 1.5;
+    padding: 0 5px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .contact-container {
+    padding: 50px 20px;
+  }
+
+  .contact-content {
+    width: 90%;
+    padding: 25px;
+    border-radius: 14px;
+  }
+
+  .contact-content h2 {
+    font-size: 2.6rem;
+    margin-bottom: 18px;
+  }
+
+  .contact-content p,
+  .contact-content li {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 0 8px;
+  }
+}
+
+@media (min-width: 769px) {
+  .contact-container {
+    padding: 60px 20px;
+  }
+
+  .contact-content {
+    max-width: 800px;
+    padding: 30px;
+  }
+
+  .contact-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .contact-content p,
+  .contact-content li {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    padding: 0 10px;
+  }
+}

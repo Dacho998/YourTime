@@ -11,9 +11,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: 2000px;
   margin: 0 auto;
-  gap: 50px;
+  gap: 150px;
 }
 
 .footer-contact,
@@ -21,6 +21,7 @@
 .footer-message {
   flex: 1 1 280px;
   min-width: 280px;
+  margin-left: 0px;
 }
 
 .footer-container h3 {
@@ -63,7 +64,6 @@
 }
 
 .footer-message p {
-  font-size: 1.15rem;
   font-style: italic;
   color: rgba(245, 230, 196, 0.9);
   margin-top: 10px;

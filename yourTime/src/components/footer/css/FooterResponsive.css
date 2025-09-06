@@ -1,0 +1,91 @@
+@media (max-width: 480px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 25px;
+    padding: 20px;
+  }
+
+  .footer-contact,
+  .footer-links,
+  .footer-message {
+    flex: 1 1 100%;
+    min-width: auto;
+  }
+
+  .footer-container h3 {
+    font-size: 1.5rem;
+  }
+
+  .footer-contact li,
+  .footer-links li,
+  .footer-message p {
+    font-size: 1rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.85rem;
+    padding-top: 15px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .footer-contact,
+  .footer-links,
+  .footer-message {
+    flex: 1 1 45%;
+    min-width: 45%;
+  }
+
+  .footer-container h3 {
+    font-size: 1.7rem;
+  }
+
+  .footer-contact li,
+  .footer-links li,
+  .footer-message p {
+    font-size: 1.05rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.9rem;
+    padding-top: 18px;
+  }
+}
+
+@media (min-width: 769px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 50px 40px 30px;
+  }
+
+  .footer-contact,
+  .footer-links,
+  .footer-message {
+    flex: 1 1 280px;
+    min-width: 280px;
+  }
+
+  .footer-container h3 {
+    font-size: 1.9rem;
+  }
+
+  .footer-contact li,
+  .footer-links li,
+  .footer-message p {
+    font-size: 1.15rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.95rem;
+    padding-top: 20px;
+  }
+}
