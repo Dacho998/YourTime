@@ -9,6 +9,9 @@ app.use(cors());
 app.use(express.json());
 
 connectDB();
+app.get("/", (req, res) => {
+  res.send("Backend is running on Render!");
+});
 
 app.use('/', userRoutes);
 
