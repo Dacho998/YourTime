@@ -13,7 +13,7 @@ export default function Contact ()  {
     <li>Email: krstevskidavid998@gmail.com</li>
     <li>Phone: +389 75 667 340</li>
     <li>Address: Skopje, Macedonia</li>
-    <li><a href="">Portfolio</a></li>
+    <li><a href="https://portfolio-eta-five-xyc1rpue4p.vercel.app/">Portfolio</a></li>
   </ul>
 </div>
     </section>
