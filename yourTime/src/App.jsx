@@ -11,7 +11,7 @@ import SwissCollection from "./components/watches/SwissMilitary/SwissCollection"
 import Contact from "./components/contact/Contact";
 import Footer from "./components/footer/Footer";
 import Login from "./components/logIn/LogIn"; 
-import SingUp from "./components/singUp/SingUp";
+import SignUp from "./components/signUp/SignUp";
 import Cart from "./components/cart/Cart";
 
 import { AuthProvider } from "./context/AuthContext";
@@ -32,7 +32,7 @@ function App() {
               <Route path="/About_this_page" element={<AboutThisSite />} />
               <Route path="/Contact" element={<Contact />} />
               <Route path="/log_in" element={<Login />} />
-              <Route path="/singup" element={<SingUp />} />
+              <Route path="/signup" element={<SignUp />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>
           </div>

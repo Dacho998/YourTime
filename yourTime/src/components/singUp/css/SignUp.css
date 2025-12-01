@@ -1,4 +1,4 @@
-.singup-section {
+.signup-section {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -9,7 +9,7 @@
   color: #f5e6c4;
 }
 
-.singup-form{
+.signup-form{
   background: rgba(0, 0, 0, 0.65);
   padding: 40px 35px;
   border-radius: 14px;
@@ -21,7 +21,7 @@
   animation: fadeInUp 1.2s ease forwards;
 }
 
-.singup-form h2 {
+.signup-form h2 {
   font-size: 2.8rem;
   margin-bottom: 25px;
   background: linear-gradient(45deg, #d4af37, #f5e6c4);
@@ -33,14 +33,14 @@
   text-align: center;
 }
 
-.singup-form label {
+.signup-form label {
   font-size: 1.15rem;
   margin-bottom: 8px;
   letter-spacing: 0.8px;
   color: #f5e6c4;
 }
 
-.singup-form input {
+.signup-form input {
   padding: 12px 15px;
   margin-bottom: 20px;
   border-radius: 10px;
@@ -53,14 +53,14 @@
   transition: box-shadow 0.3s ease;
 }
 
-.singnup-form input:focus {
+.signnup-form input:focus {
   outline: none;
   box-shadow: 0 0 15px #d4af37;
   background: #3e2f15;
   color: #fff;
 }
 
-.singup-form button {
+.signup-form button {
   background: linear-gradient(45deg, #d4af37, #f5e6c4);
   border: none;
   padding: 14px;
@@ -74,27 +74,27 @@
   letter-spacing: 1.1px;
 }
 
-.singup-form button:hover {
+.signup-form button:hover {
   background: linear-gradient(45deg, #f5e6c4, #d4af37);
   box-shadow: 0 0 30px #d4af37;
   color: #2b2109;
 }
 
-.singup-footer-text {
+.signup-footer-text {
   margin-top: 20px;
   font-size: 1rem;
   text-align: center;
   color: rgba(245, 230, 196, 0.85);
 }
 
-.singup-footer-text a {
+.signup-footer-text a {
   color: #d4af37;
   text-decoration: none;
   font-weight: 600;
   transition: color 0.3s ease;
 }
 
-.singnup-footer-text a:hover {
+.signnup-footer-text a:hover {
   color: #f5e6c4;
   text-shadow: 0 0 10px rgba(212, 175, 55, 0.9);
 }

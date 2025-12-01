@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-interface SingUpFormProps {
+interface SignUpFormProps {
   onSubmit: (name: string, email: string, password: string, confirmPassword: string) => void;
   error: string | null;
   success: string | null;
 }
 
-export default function SingUpForm({ onSubmit, error, success }: SingUpFormProps) {
+export default function SignUpForm({ onSubmit, error, success }: SignUpFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -19,9 +19,9 @@ export default function SingUpForm({ onSubmit, error, success }: SingUpFormProps
   };
 
   return (
-    <section className="singup-section">
-      <form className="singup-form" onSubmit={handleSubmit}>
-        <h2>Sing Up</h2>
+    <section className="signup-section">
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <h2>Sign Up</h2>
 
         <label htmlFor="name">Full Name</label>
         <input type="text" id="name" placeholder="Enter your full name" required value={name} onChange={e => setName(e.target.value)} />
@@ -40,7 +40,7 @@ export default function SingUpForm({ onSubmit, error, success }: SingUpFormProps
         {error && <p className="error-text">{error}</p>}
         {success && <p className="success-text">{success}</p>}
 
-        <p className="singup-footer-text">
+        <p className="signup-footer-text">
           Already have an account? <Link to="/log_in">Log in here</Link>
         </p>
       </form>

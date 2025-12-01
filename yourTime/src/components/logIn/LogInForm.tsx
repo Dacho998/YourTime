@@ -39,12 +39,12 @@ export default function LoginForm({ onSubmit, error }: LoginFormProps) {
         onChange={e => setPassword(e.target.value)}
       />
 
-      <button type="submit">Sing In</button>
+      <button type="submit">Sign In</button>
 
       {error && <p className="error-text">{error}</p>}
 
       <p className="login-footer-text">
-        Don't have an account? <Link to="/singup">Sing up</Link>
+        Don't have an account? <Link to="/signup">Sign up</Link>
       </p>
     </form>
   );

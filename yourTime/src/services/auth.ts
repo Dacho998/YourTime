@@ -34,12 +34,12 @@ export const loginUser = async (
   return data as LoginResponse;
 };
 
-export const singupUser = async (
+export const signupUser = async (
   name: string, 
   email: string, 
   password: string
 ): Promise<SignupResponse> => {
-  const res = await fetch(`${API_URL}/sing_up`, {
+  const res = await fetch(`${API_URL}/sign_up`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, email, password }),
